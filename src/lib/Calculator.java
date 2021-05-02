@@ -6,7 +6,7 @@ public class Calculator {
   public Calculator() {
   }
 
-  public Integer execute(String s) {
+  public Double execute(String s) {
     return parseEquation(s).solve();
   }
 }

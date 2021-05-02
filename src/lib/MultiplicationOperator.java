@@ -14,7 +14,7 @@ public class MultiplicationOperator implements Operator {
   }
 
   @Override
-  public Integer doOperation(Equation o1, Equation o2) {
+  public Double doOperation(Equation o1, Equation o2) {
     return o1.solve() * o2.solve();
   }
 }

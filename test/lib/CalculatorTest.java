@@ -6,16 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
   Calculator cal = new Calculator();
+
   @Test
   void shouldBeAbleToAddPositiveNumbers() {
-    assertEquals(cal.execute("2+2"), 4);
-    assertEquals(cal.execute("2+2+2"), 6);
+    assertEquals(cal.execute("2+2+2+3"), 6);
   }
 
   @Test
   void shouldBeAbleToSubtractThreePositiveNumbers() {
     assertEquals(cal.execute("12-2-2"), 8);
   }
+
   @Test
   void shouldBeAbleToMultiplyThreePositiveNumbers() {
     assertEquals(cal.execute("2*2*2"), 8);
@@ -25,4 +26,15 @@ public class CalculatorTest {
   void shouldBeAbleToDivideThreePositiveNumbers() {
     assertEquals(cal.execute("2/2"), 1);
   }
+
+  @Test
+  void shouldBeAbleToHandleDecimals() {
+    assertEquals(cal.execute("2.0+2.3"), 4.3);
+  }
+
+  @Test
+  void shouldBeAbleToCalculatePercentage() {
+    assertEquals(cal.execute("20%3"), 666.6666666666667);
+  }
 }
+

@@ -1,5 +1,5 @@
 package lib;
 
 public interface Operator {
-  Integer doOperation(Equation o1, Equation o2);
+  Double doOperation(Equation o1, Equation o2);
 }

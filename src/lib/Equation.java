@@ -3,7 +3,7 @@ package lib;
 import java.util.Objects;
 
 public class Equation {
-  private Integer number;
+  private Double number;
   private Operator op;
   private Equation op1;
   private Equation op2;
@@ -14,7 +14,7 @@ public class Equation {
     this.op2 = op2;
   }
 
-  public Equation(Integer number) {
+  public Equation(Double number) {
     this.number = number;
   }
 
@@ -22,7 +22,7 @@ public class Equation {
     return EquationReader.doYourJob(s);
   }
 
-  public Integer solve() {
+  public Double solve() {
     if (this.number == null)
       return op.doOperation(op1, op2);
     return number;
