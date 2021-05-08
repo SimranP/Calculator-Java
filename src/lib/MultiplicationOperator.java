@@ -1,5 +1,7 @@
 package lib;
 
+import java.util.List;
+
 public class MultiplicationOperator implements Operator {
   private static MultiplicationOperator single_instance = null;
 
@@ -14,7 +16,10 @@ public class MultiplicationOperator implements Operator {
   }
 
   @Override
-  public Double doOperation(Equation o1, Equation o2) {
-    return o1.solve() * o2.solve();
+
+  public Double doOperation(List<Equation> operands) {
+    return operands.stream().reduce(new Equation(1.0), (a, b) -> {
+      return new Equation(a.solve() * b.solve());
+    }).solve();
   }
 }

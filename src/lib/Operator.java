@@ -1,5 +1,7 @@
 package lib;
 
+import java.util.List;
+
 public interface Operator {
-  Double doOperation(Equation o1, Equation o2);
+  Double doOperation(List<Equation> operands);
 }

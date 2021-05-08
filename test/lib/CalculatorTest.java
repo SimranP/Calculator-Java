@@ -29,7 +29,7 @@ public class CalculatorTest {
 
   @Test
   void shouldBeAbleToHandleDecimals() {
-    assertEquals(cal.execute("2.0+2.3"), 4.3);
+    assertEquals(cal.execute("2+2*2/2-2"), 2);
   }
 
   @Test

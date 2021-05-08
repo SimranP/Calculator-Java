@@ -1,5 +1,7 @@
 package lib;
 
+import java.util.List;
+
 public class DivisionOperator implements Operator {
   private static DivisionOperator single_instance = null;
 
@@ -14,7 +16,13 @@ public class DivisionOperator implements Operator {
   }
 
   @Override
-  public Double doOperation(Equation o1, Equation o2) {
-    return o1.solve() / o2.solve();
+  public Double doOperation(List<Equation> operands) {
+    Equation acc = new Equation(operands.get(0).solve() / operands.get(1).solve());
+    for (int i = 2; i < operands.size(); i++) {
+      Equation operand = operands.get(i);
+      acc = new Equation(acc.solve() / operand.solve());
+    }
+    return acc
+      .solve();
   }
 }

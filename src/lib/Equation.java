@@ -1,17 +1,17 @@
 package lib;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Equation {
   private Double number;
-  private Operator op;
-  private Equation op1;
-  private Equation op2;
+  private Operators op;
+  private List<Equation> operands;
 
-  public Equation(Operator op, Equation op1, Equation op2) {
+  public Equation(Operators op, List<Equation> operands) {
     this.op = op;
-    this.op1 = op1;
-    this.op2 = op2;
+    this.operands = operands;
   }
 
   public Equation(Double number) {
@@ -19,12 +19,12 @@ public class Equation {
   }
 
   public static Equation parseEquation(String s) {
-    return EquationReader.doYourJob(s);
+    return EquationReader.doYourJob(s, null, null);
   }
 
   public Double solve() {
     if (this.number == null)
-      return op.doOperation(op1, op2);
+      return op.getInstance().doOperation(operands);
     return number;
   }
 
@@ -33,21 +33,23 @@ public class Equation {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Equation equation = (Equation) o;
-    return Objects.equals(number, equation.number) && Objects.equals(op, equation.op) && Objects.equals(op1, equation.op1) && Objects.equals(op2, equation.op2);
+    return Objects.equals(number, equation.number) && Objects.equals(op, equation.op) && Objects.equals(operands, equation.operands);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(number, op, op1, op2);
+    return Objects.hash(number, op, operands);
   }
 
   @Override
   public String toString() {
-    return "Equation{" +
-      "number=" + number +
-      ", op=" + op +
-      ", op1=" + op1 +
-      ", op2=" + op2 +
-      '}';
+    if (number != null) {
+      return number.toString();
+    }
+    StringBuilder result = new StringBuilder();
+    for (Equation o1 : operands) {
+      result.append(o1.toString()).append(op.getSymbol());
+    }
+    return "(" + result.substring(0, result.length() - 1) + ")";
   }
 }
