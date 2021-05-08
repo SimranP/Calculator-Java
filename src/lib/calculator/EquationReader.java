@@ -1,13 +1,13 @@
-package lib;
+package lib.calculator;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
-import static lib.Operators.Add;
-import static lib.Operators.Div;
-import static lib.Operators.Mul;
-import static lib.Operators.Sub;
+import static lib.calculator.Operators.Add;
+import static lib.calculator.Operators.Div;
+import static lib.calculator.Operators.Mul;
+import static lib.calculator.Operators.Sub;
 
 public class EquationReader {
   public static Equation doYourJob(String s, Integer index, Operators op) {

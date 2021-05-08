@@ -1,4 +1,4 @@
-package lib;
+package lib.calculator;
 
 public enum Operators {
   Add("+", AdditionOperator.getInstance(), "[+]"),

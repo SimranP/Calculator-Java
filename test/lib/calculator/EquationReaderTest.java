@@ -1,8 +1,9 @@
-package lib;
+package lib.calculator;
 
+import lib.calculator.Equation;
+import lib.calculator.EquationReader;
+import lib.calculator.Operators;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.assertEquals;

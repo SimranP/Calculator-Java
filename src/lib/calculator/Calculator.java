@@ -1,6 +1,6 @@
-package lib;
+package lib.calculator;
 
-import static lib.Equation.parseEquation;
+import static lib.calculator.Equation.parseEquation;
 
 public class Calculator {
   public Calculator() {

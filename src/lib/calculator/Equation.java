@@ -1,8 +1,7 @@
-package lib;
+package lib.calculator;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Equation {
   private Double number;

@@ -1,5 +1,7 @@
-package lib;
+package lib.calculator;
 
+import lib.calculator.AdditionOperator;
+import lib.calculator.Equation;
 import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
